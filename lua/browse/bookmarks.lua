@@ -49,13 +49,17 @@ M.search_bookmarks = function(config)
             ordinal = entry[1]
 
             for k, v in pairs(entry[2]) do
-                ordinal = ordinal .. k .. v
+                ordinal = ordinal .. " " .. k
 
                 if type(k) == "string" then
                     display = display .. " " .. k
                 else
                     display = display .. " " .. utils.get_domain(v)
                 end
+            end
+
+            for _, v in pairs(entry[2]) do
+                ordinal = ordinal .. " " .. v
             end
 
             value = entry[2]
